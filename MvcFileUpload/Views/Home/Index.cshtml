@@ -1,0 +1,19 @@
+﻿@using MvcFileUploader.HtmlHelper
+@using MvcFileUploader.Models
+@{
+    ViewBag.Title = "Mvc File Uploader";
+    Layout = "~/Views/Shared/_MvcFileUploaderLayout.cshtml";
+}
+
+<div class="well">
+    @(
+ Html.MvcFileUpload()
+        .UploadAt(Url.Action("UploadFile"))
+        .UIStyle(UploadUI.Bootstrap)
+        .WithFileTypes(@"/(\.|\/)(jpe?g|png)$/i")
+        .WithMaxFileSize(5000000)
+        .RenderInline("_MvcFileupload")
+    )
+
+</div>
+
